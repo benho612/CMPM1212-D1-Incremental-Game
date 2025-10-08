@@ -1,3 +1,5 @@
 # CMPM 121 D1 Project
 
-This is the starting point for your CMPM 121 D1 project. The goal of this project is to create a simple web application using TypeScript, Vite, and modern web development practices. Students should make sure to remove _this_ content from their README.md file and replace it with their own project documentation.
+My D1 project will make something similar to cookie clicker, but add some RPG elements to it.
+
+Step 1: Add a button that really work for now.
