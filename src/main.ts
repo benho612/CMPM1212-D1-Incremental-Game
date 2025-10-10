@@ -12,8 +12,14 @@ const button = document.getElementById("increment")!;
 const counterElement = document.getElementById("counter")!;
 
 button.addEventListener("click", () => {
-  counter += 2;
+  counter += 1;
 
   counterElement.textContent = counter.toString();
   console.log("I have these thingies:", button, counterElement, counter);
 });
+
+setInterval(() => {
+  counter += 1;
+  counterElement.textContent = counter.toString();
+  console.log("Auto increment:", counter);
+}, 1000);
