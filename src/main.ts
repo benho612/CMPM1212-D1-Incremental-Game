@@ -1,4 +1,5 @@
 let counter: number = 0;
+let lastTime = performance.now(); // record the last frame time
 
 // Create basic HTML structure
 document.body.innerHTML = `
@@ -18,8 +19,20 @@ button.addEventListener("click", () => {
   console.log("I have these thingies:", button, counterElement, counter);
 });
 
-setInterval(() => {
-  counter += 1;
-  counterElement.textContent = counter.toString();
-  console.log("Auto increment:", counter);
-}, 1000);
+function update(currentTime: number) {
+  // compute time passed (in seconds)
+  const deltaTime = (currentTime - lastTime) / 1000;
+  lastTime = currentTime;
+
+  // add 1 per second (scaled by delta time)
+  counter += deltaTime * 1.0;
+
+  // update display
+  counterElement.textContent = counter.toFixed(2);
+
+  // loop again
+  requestAnimationFrame(update);
+}
+
+// start animation loop
+requestAnimationFrame(update);
